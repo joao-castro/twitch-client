@@ -1,0 +1,55 @@
+<header>
+	<div class="navbar navbar-dark bg-dark shadow-sm">
+		<div class="container d-flex justify-content-between">
+			<a href="#" class="navbar-brand d-flex align-items-center">
+				<img class="mr-3 blip-logo" ng-src="https://blip.pt/content/themes/ppb/assets/images/blip-logo-black.svg">
+				<strong>Twitch Client</strong>
+			</a>
+		</div>
+	</div>
+</header>
+<main>
+	<div class="container py-5">
+		<div class="row">
+			<div class="col-sm-9 col-lg-10 p-0">
+				<div class="input-group input-group-lg">
+					<div class="input-group-prepend">
+						<span class="input-group-text">
+							<i class="fa fa-twitch"></i>
+						</span>
+					</div>
+					<input type="search" class="form-control" placeholder="Search for Twitch streams..." ng-model="$ctrl.searchValue" ng-change="$ctrl.filterStreams()">
+				</div>				
+			</div>
+			<div class="col-sm-3 col-lg-2 p-0">
+				<div class="input-group input-group-lg">
+					<div class="input-group-prepend">
+						<span class="input-group-text">
+							<i class="fa fa-hashtag"></i>
+						</span>
+					</div>
+					<input type="text" class="form-control" placeholder="Results" ng-model="$ctrl.maxResults" ng-change="$ctrl.saveMaxResults()" />
+				</div>				
+			</div>			
+		</div>	
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="stream in $ctrl.filteredStreams | limitTo:$ctrl.maxResults">
+				<div class="card mb-4 shadow-sm">
+					<a href="#!/streams/{{stream.user_name}}">
+						<img class="card-img-top" ng-src="{{stream.thumbnail_url | imgSize}}" alt="{{stream.title}}">	
+					</a>
+					<div class="card-body">
+						<div class="card-text font-weight-bold text-truncate" title="{{stream.title}}">{{stream.title}}</div>
+						<div class="card-text text-truncate" title="{{stream.user_name}}">{{stream.user_name}}</div>
+						<div class="card-text text-truncate" title="{{stream.game_name}}">{{stream.game_name}}</div>
+						<div class="d-flex justify-content-between align-items-center">
+							<small class="text-muted text-truncate" title="{{stream.viewer_count | number}}">{{stream.viewer_count | number}}</small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

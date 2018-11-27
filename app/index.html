@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="twitchApp">
+	<head>
+		<meta charset="utf-8">
+		<title>Twitch Client</title>		
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="app.css" />
+	</head>
+	<body>
+		<div ng-view></div>
+		<script src="lib/jquery/dist/jquery.js"></script>
+		<script src="lib/angular/angular.js"></script>
+		<script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+		<script src="lib/angular-route/angular-route.js"></script>
+		<script src="app.module.js"></script>
+		<script src="app.config.js"></script>
+		<script src="core/core.module.js"></script>
+		<script src="core/fetched-games/fetched-games.module.js"></script>
+		<script src="core/fetched-games/fetched-games.service.js"></script>		
+		<script src="core/fetched-streams/fetched-streams.module.js"></script>
+		<script src="core/fetched-streams/fetched-streams.service.js"></script>
+		<script src="core/img-size/img-size.filter.js"></script>
+		<script src="core/twitch-api/twitch-api.module.js"></script>
+		<script src="core/twitch-api/twitch-api.service.js"></script>
+		<script src="stream-detail/stream-detail.module.js"></script>
+		<script src="stream-detail/stream-detail.component.js"></script>		
+		<script src="stream-list/stream-list.module.js"></script>
+		<script src="stream-list/stream-list.component.js"></script>
+	</body>
+</html>
