@@ -14,9 +14,13 @@ angular.module('streamList')
 				ctrl.saveMaxResults = saveMaxResults;
 				ctrl.filterStreams = filterStreams;
 
-				fetchedStreams.getStreams().length ? ctrl.filterStreams() : ctrl.fetchStreams();
-
-				$interval(fetchStreams, 60000);
+				if (fetchedStreams.getStreams().length) {
+					ctrl.filterStreams();
+				}
+				else {
+					ctrl.fetchStreams();
+					$interval(fetchStreams, 60000);
+				}
 
 				var streams;
 				var paginationCursor;
